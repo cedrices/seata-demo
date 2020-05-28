@@ -1,0 +1,31 @@
+
+server:
+  port: 8083
+spring:
+  cloud:
+    alibaba:
+      seata:
+        tx-service-group: my_test_tx_group
+  application:
+    name: order-micro-server
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/seata_order?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: cedric
+    password: haos123456
+    driver-class-name: com.mysql.jdbc.Driver
+mybatis:
+  type-aliases-package: com.cn.entity
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${server.port}
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:8781/eureka/
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 30000

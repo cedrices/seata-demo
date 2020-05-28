@@ -1,0 +1,31 @@
+server:
+  port: 8280
+spring:
+  application:
+    name: gateway-micro-server
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${server.port}
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:8781/eureka/
+zuul:
+  prefix: /api
+  routes:
+    zuul-service01:
+      path: /order/**
+      service-id: order-micro-server
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 30000
+ribbon:
+  ConnectTimeout: 200
+  ReadTimeout: 2000
+  OkToRetryOnAllOperations: true
+  MaxAutoRetriesNextServer: 2
+  MaxAutoRetries: 2

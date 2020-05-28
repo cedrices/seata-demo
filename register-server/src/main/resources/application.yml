@@ -1,0 +1,26 @@
+server:
+  port: 8781
+spring:
+  application:
+    name: eurekaServer
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    #不向其他eureka注册
+    register-with-eureka: false
+    #不从其他eureka拉取
+    fetch-registry: false
+    #eurek注册地址
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  #是否使用自我保护
+  server:
+    enable-self-preservation: false
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 30000

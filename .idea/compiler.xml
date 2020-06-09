@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="gateway-server" />
+        <module name="config-server" />
+        <module name="account-micro-server" />
+        <module name="goods-micro-server" />
+        <module name="order-micro-server" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="account-micro-server" target="1.8" />
+      <module name="config-server" target="1.8" />
+      <module name="gateway-server" target="1.8" />
+      <module name="goods-micro-server" target="1.8" />
+      <module name="order-micro-server" target="1.8" />
+      <module name="seata-demo" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="account-micro-server" options="-parameters" />
+      <module name="config-server" options="-parameters" />
+      <module name="gateway-server" options="-parameters" />
+      <module name="goods-micro-server" options="-parameters" />
+      <module name="order-micro-server" options="-parameters" />
+    </option>
+  </component>
+</project>
